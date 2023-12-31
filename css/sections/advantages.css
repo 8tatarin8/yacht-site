@@ -19,6 +19,11 @@
 .advantages-title {
 }
 
+.advantages-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .advantages-list {
   display: flex;
   background: var(--color-sec-bg);
@@ -26,7 +31,6 @@
   gap: 40px;
   padding: 80px 20px;
   border-radius: 24px;
-  margin-bottom: 20px;
 }
 .advantages-list-item {
 }
@@ -35,7 +39,19 @@
   font-weight: 500;
   line-height: 1; /* 100% */
   letter-spacing: -0.05em;
-  margin-bottom: 32px;
+}
+.adantages-list-number::after {
+  display: block;
+  content: "";
+  height: 2px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  background: rgba(251, 251, 251, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: 18px;
+  margin-bottom: 18px;
 }
 .advantages-list-text {
   color: #fbfbfb;
@@ -44,10 +60,11 @@
   line-height: 1.16; /* 116.667% */
   letter-spacing: -0.02em;
   opacity: 0.8;
-  position: relative;
-  width: 292px;
+
+  /* position: relative;
+  width: 292px; */
 }
-.advantages-list-text::before {
+/* .advantages-list-text::before {
   position: absolute;
   display: block;
   content: "";
@@ -59,7 +76,7 @@
   margin-left: auto;
   margin-right: auto;
   top: -18px;
-}
+} */
 .advantages-img {
   border-radius: 25px;
 }
@@ -96,6 +113,8 @@
 |====================================================|
 */
 @media screen and (min-width: 768px) {
+  /* вписати типографію */
+
   .container {
     max-width: 767px;
     padding: 0 32px;
@@ -104,8 +123,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px 34px;
+    justify-content: space-between;
+    padding: 90px 32px;
   }
-  /* вписати типографію */
+  .advantages-list-item {
+    width: 100%;
+    max-width: 300px;
+  }
+  .advantages-wrapper {
+    gap: 32px;
+  }
 }
 /*
 |========================================================|
@@ -137,13 +164,22 @@
 @media screen and (min-width: 1280px) {
   .container {
     max-width: 1280px;
-    padding: 0 32px;
+    padding: 0 50px;
+  }
+  .advantages-wrapper {
+    flex-direction: row;
   }
   /* не працює! не розпаковується */
   .advantages-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 32px 34px;
+    gap: 44px 44px;
+    padding: 90px 50px;
+    margin-bottom: 0;
+  }
+  .adantages-list-number::after {
+    width: 100%;
+  }
+  .advantages-list-item {
+    min-width: 280px;
   }
   .advantages-box {
     display: flex;
@@ -163,11 +199,21 @@
 |==========================================================|
 */
 @media screen and (min-width: 1440px) {
-  .container {
+  /* typography/типографія=tablet=desktop_1280 */
+  .advantages-list-item {
+    max-width: 318px;
+  }
+
+  .advantages-list {
+    gap: 44px 32px;
+  }
+
+  .advantages-box.container {
+    padding: 0px 50px;
     max-width: 1440px;
-    padding: 0 15px;
   }
 }
+
 /*
 |===========================================================|
 |============|OFF/DESKTOP_1440 STYLES/advantages|===========|
